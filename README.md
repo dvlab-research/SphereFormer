@@ -13,7 +13,7 @@ Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia
 
 
 <div align="center">
-  <img src="figure.jpg"/>
+  <img src="./figure.jpg"/>
 </div>
 
 
