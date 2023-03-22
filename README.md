@@ -29,8 +29,8 @@ pip install torch_geometric
 pip install tensorboard timm termcolor tensorboardX
 ```
 
+Install `sptr`
 ```
-# install sptr
 cd third_party/SparseTransformer && python setup.py install
 ```
 
