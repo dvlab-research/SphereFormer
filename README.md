@@ -2,7 +2,7 @@
 
 This is the official PyTorch implementation of **SphereFormer** (CVPR 2023).
 
-**Spherical Transformer for LiDAR-based 3D Recognition** [Paper]
+**Spherical Transformer for LiDAR-based 3D Recognition** [\[Paper\]](https://github.com/dvlab-research/SphereFormer/releases/download/v1.0/paper_sphereformer.pdf)
 
 Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia 
 
@@ -128,7 +128,7 @@ If you find this project useful, please consider citing:
 
 # Our Works on 3D Point Cloud
 
-* **Spherical Transformer for LiDAR-based 3D Recognition (CVPR 2023)** \[Paper\] [\[Code\]](https://github.com/dvlab-research/SphereFormer) : A plug-and-play transformer module that boosts performance for distant region (for 3D LiDAR point cloud)
+* **Spherical Transformer for LiDAR-based 3D Recognition (CVPR 2023)** [\[Paper\]](https://github.com/dvlab-research/SphereFormer/releases/download/v1.0/paper_sphereformer.pdf) [\[Code\]](https://github.com/dvlab-research/SphereFormer) : A plug-and-play transformer module that boosts performance for distant region (for 3D LiDAR point cloud)
 
 * **Stratified Transformer for 3D Point Cloud Segmentation (CVPR 2022)**: [\[Paper\]](https://openaccess.thecvf.com/content/CVPR2022/papers/Lai_Stratified_Transformer_for_3D_Point_Cloud_Segmentation_CVPR_2022_paper.pdf) [\[Code\]](https://github.com/dvlab-research/Stratified-Transformer) : Point-based window transformer for 3D point cloud segmentation
 
