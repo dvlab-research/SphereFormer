@@ -6,15 +6,14 @@ This is the official PyTorch implementation of **SphereFormer** (CVPR 2023).
 
 Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia 
 
-<div align="center">
-  <img src="figs/figure.jpg"/>
-</div>
-
 # Highlight 
 1. **SphereFormer** is a plug-and-play transformer module. We develop *radial window attention*, which significantly boosts the segmentation performance of *distant points*, e.g., from 13.3% to 30.4% mIoU on nuScenes lidarseg *val* set. 
 2. It achieves superior performance on various **outdoor semantic segmentation benchmarks**, e.g., nuScenes, SemanticKITTI, Waymo, and also shows competitive results on nuScenes detection dataset.
 3. This repository employs a fast and memory-efficient library for sparse transformer with varying tokens, [**SparseTransformer**](https://github.com/dvlab-research/SparseTransformer).
 
+<div align="center">
+  <img src="figs/figure.jpg"/>
+</div>
 
 # Get Started
 
