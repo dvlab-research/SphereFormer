@@ -1,0 +1,73 @@
+DATA:
+  data_name: nuscenes
+  data_root: YOUR_DATA_ROOT # Fill in the data path 
+  label_mapping: util/nuscenes.yaml
+  classes: 16 
+  fea_dim: 6
+  voxel_size: [0.1, 0.1, 0.1]
+  voxel_max: 120000 
+
+TRAIN:
+  # arch
+  arch: unet_spherical_transformer
+  input_c: 4
+  m: 32
+  block_reps: 2
+  block_residual: True
+  layers: [32, 64, 128, 256, 256]
+  quant_size_scale: 24
+  patch_size: 1 
+  window_size: 6
+  use_xyz: True
+  sync_bn: True  # adopt sync_bn or not
+  rel_query: True
+  rel_key: True
+  rel_value: True
+  drop_path_rate: 0.3
+  max_batch_points: 250000
+
+  xyz_norm: False
+  window_size_sphere: [2, 2, 120]
+  window_size_scale: [2.0, 2.0]
+  sphere_layers: [1,2,3,4,5]
+  grad_checkpoint_layers: []
+  a: 0.0125
+  loss_name: ce_loss
+  use_tta: False
+  vote_num: 4
+
+  # training
+  aug: True
+  transformer_lr_scale: 0.1 
+  scheduler_update: step 
+  scheduler: Poly
+  power: 0.9
+  use_amp: True
+  train_gpu: [0,1,2,3] 
+  workers: 16  # data loader workers
+  batch_size: 16  # batch size for training
+  batch_size_val: 8  # batch size for validation during training, memory and speed tradeoff
+  base_lr: 0.006
+  epochs: 50
+  start_epoch: 0
+  momentum: 0.9
+  weight_decay: 0.01
+  drop_rate: 0.5
+
+  ignore_label: 255
+  manual_seed: 123
+  print_freq: 10
+  save_freq: 1
+  save_path: runs/nuscenes_unet32_spherical_transformer
+  weight:  # path to initial weight (default: none)
+  resume:  # path to latest checkpoint (default: none)
+  evaluate: True  # evaluate on validation set, extra gpu memory needed and small batch_size_val is recommend
+  eval_freq: 1
+  val: False
+  
+Distributed:
+  dist_url: tcp://127.0.0.1:6789
+  dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0

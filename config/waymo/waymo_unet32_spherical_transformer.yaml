@@ -1,0 +1,82 @@
+DATA:
+  data_name: waymo
+  data_root: YOUR_DATA_ROOT/waymo_semantickitti_format # Fill in the data path 
+  classes: 22
+  fea_dim: 6
+  voxel_size: [0.1, 0.1, 0.1]
+  voxel_max: 160000 
+
+TRAIN:
+  # arch
+  arch: unet_spherical_transformer
+  input_c: 4
+  m: 32
+  block_reps: 2
+  block_residual: True
+  layers: [32, 64, 128, 256, 256]
+  quant_size_scale: 24
+  patch_size: 1 
+  window_size: 6
+  use_xyz: True
+  sync_bn: True  # adopt sync_bn or not
+  rel_query: True
+  rel_key: True
+  rel_value: True
+  drop_path_rate: 0.3
+  max_batch_points: 1000000
+  xyz_norm: False
+  meanvoxel: False
+  val_meanvoxel: True
+  mix_transformer: True
+  window_size_sphere: [1.5, 1.5, 80]
+  window_size_scale: [2.0, 1.5]
+  pc_range: [[-75.2, -75.2, -2], [75.2, 75.2, 4]]
+  loss_name: focal_loss 
+  loss_gamma: 2.0
+  sphere_layers: [1,2,3,4,5]
+  grad_checkpoint_layers: []
+  a: 0.0125
+  class_weight: [ 1,  1,  1,  1,  1,  1, # 0-5
+                  1,  1,  1,  1,  1,  1,  1,  1, # 6-13
+                  1,  1,  1,  1,  1,  1,  1,  1] # 14-21
+  use_tta: False
+  vote_num: 4
+
+  # training
+  aug: True
+  transformer_lr_scale: 0.1 
+  scheduler_update: step 
+  scheduler: Poly
+
+  power: 0.9
+  use_amp: False #True
+  train_gpu: [0,1,2,3] 
+  workers: 16  # data loader workers 
+  batch_size: 8  # batch size for training
+  batch_size_val: 4  # batch size for validation during training, memory and speed tradeoff
+  base_lr: 0.006
+  epochs: 50
+  start_epoch: 0
+  step_epoch: 30
+  multiplier: 0.1
+  momentum: 0.9
+  weight_decay: 0.01
+  drop_rate: 0.5
+
+  ignore_label: 255
+  manual_seed: 123
+  print_freq: 10
+  save_freq: 1
+  save_path: runs/waymo_unet32_spherical_transformer
+  weight:  # path to initial weight (default: none)
+  resume:  # path to latest checkpoint (default: none)
+  evaluate: True  # evaluate on validation set, extra gpu memory needed and small batch_size_val is recommend
+  eval_freq: 1
+  val: False
+  split: val  # split in [train, val and test]
+Distributed:
+  dist_url: tcp://127.0.0.1:6789
+  dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0
