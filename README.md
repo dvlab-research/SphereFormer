@@ -73,8 +73,9 @@ waymo/
 |--- validation/
 |--- testing/
 ```
-Then, transfer the raw files into the format of semantic kitti as follows. (Note: do not use GPU here, and CPU works well already)
+Then, transfer the raw files into the format of SemanticKITTI as follows. (Note: do not use GPU here, and CPU works well already)
 ```
+cd data/waymo_to_semanticKITTI
 CUDA_VISIBLE_DEVICES="" python convert.py --load_dir [YOUR_DATA_ROOT] --save_dir [YOUR_SAVE_ROOT]
 ```
 
