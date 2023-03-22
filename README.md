@@ -20,7 +20,7 @@ Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia
 
 ## Environment
 
-Install dependencies (we test on python=3.7.9, pytorch==1.8.0, cuda==11.1)
+Install dependencies (we test on python=3.7.9, pytorch==1.8.0, cuda==11.1, gcc==7.5.0)
 ```
 git clone https://github.com/dvlab-research/SphereFormer.git --recursive
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
@@ -34,7 +34,7 @@ pip install tensorboard timm termcolor tensorboardX
 cd third_party/SparseTransformer && python setup.py install
 ```
 
-Make sure you have installed `gcc` and `cuda`, and `nvcc` can work (Note that if you install cuda by conda, it won't provide nvcc and you should install cuda manually.). Then, compile and install pointops2 as follows. (We have tested on gcc==7.5.0)
+Note: Make sure you have installed `gcc` and `cuda`, and `nvcc` can work (if you install cuda by conda, it won't provide nvcc and you should install cuda manually.)
 
 ## Datasets Preparation
 
