@@ -7,7 +7,7 @@ This is the official PyTorch implementation of **SphereFormer** (CVPR 2023).
 Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia 
 
 # Highlight 
-1. **SphereFormer** is a plug-and-play transformer module. We develop *radial window attention*, which significantly boosts the segmentation performance of *distant points*, e.g., from 13.3% to 30.4% mIoU on nuScenes lidarseg *val* set. 
+1. **SphereFormer** is a plug-and-play transformer module. We develop **radial window attention**, which significantly boosts the segmentation performance of *distant points*, e.g., from 13.3% to 30.4% mIoU on nuScenes lidarseg *val* set. 
 2. It achieves superior performance on various **outdoor semantic segmentation benchmarks**, e.g., nuScenes, SemanticKITTI, Waymo, and also shows competitive results on nuScenes detection dataset.
 3. This repository employs a fast and memory-efficient library for sparse transformer with varying tokens, [**SparseTransformer**](https://github.com/dvlab-research/SparseTransformer).
 
@@ -92,7 +92,7 @@ python train.py --config config/semantic_kitti/semantic_kitti_unet32_spherical_t
 
 ### Waymo Open Dataset
 ```
-python train.py --config config/waymo/waymo_unet32_spherical_transformer.yaml.yaml
+python train.py --config config/waymo/waymo_unet32_spherical_transformer.yaml
 ```
 
 ## Validation
@@ -104,7 +104,7 @@ python train.py --config [YOUR_CONFIG_PATH]
 ## Pre-trained Models
 
 
-| dataset | mIoU (tta) | mIoU | mIoU_close | mIoU_medium | mIoU_distant |  Download  |
+| dataset | Val mIoU (tta) | Val mIoU | mIoU_close | mIoU_medium | mIoU_distant |  Download  |
 |---------------|:----:|:----:|:----:|:----:|:----:|:-----------:|
 | [nuScenes](config/nuscenes/nuscenes_unet32_spherical_transformer.yaml) | 79.5 | 78.4 | 80.8 | 60.8 | 30.4 | [Model Weight](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155154502_link_cuhk_edu_hk/Ebj08nZvE5lPpRn1ALgkcKwBjEQ5lrQFhx-yR2cbi9Cy-A?e=D3N3ge) |
 | [SemanticKITTI](config/semantic_kitti/semantic_kitti_unet32_spherical_transformer.yaml) | 69.0 | 67.8 | 68.6 | 60.4 | 17.8 | [Model Weight](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155154502_link_cuhk_edu_hk/EXsr5RdFzd9Lj7_T8L0dCagBZCDmbe5DtcZ8ipf1CfC58w?e=KxGpLV) |
@@ -131,4 +131,4 @@ If you find this project useful, please consider citing:
 
 * **Stratified Transformer for 3D Point Cloud Segmentation (CVPR 2022)**: [\[Paper\]](https://openaccess.thecvf.com/content/CVPR2022/papers/Lai_Stratified_Transformer_for_3D_Point_Cloud_Segmentation_CVPR_2022_paper.pdf) [\[Code\]](https://github.com/dvlab-research/Stratified-Transformer) : Point-based window transformer for 3D point cloud segmentation
 
-* **SparseTransformer (SpTr) Library** [\[Code\]](https://github.com/dvlab-research/SparseTransformer) : A fast, memory-efficient, and user-friendly library for sparse transformer with varying token numbers.
+* **SparseTransformer (SpTr) Library** [\[Code\]](https://github.com/dvlab-research/SparseTransformer) : A fast, memory-efficient, and easy-to-use library for sparse transformer with varying token numbers.
