@@ -2,7 +2,7 @@
 
 This is the official PyTorch implementation of **SphereFormer** (CVPR 2023).
 
-**Spherical Transformer for LiDAR-based 3D Recognition** [\[Paper\]](https://github.com/dvlab-research/SphereFormer/releases/download/v1.0/paper_sphereformer.pdf)
+**Spherical Transformer for LiDAR-based 3D Recognition** [\[Paper\]](https://arxiv.org/pdf/2303.12766.pdf)
 
 Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia 
 
@@ -96,7 +96,7 @@ python train.py --config config/waymo/waymo_unet32_spherical_transformer.yaml.ya
 ```
 
 ## Validation
-For validation, first fill in the `weight` with the path of model weight (`.pth` file), and fill in the `val` with `True` accordingly. Then, run the following command. 
+For validation, you need to modify the `.yaml` config file. (1) fill in the `weight` with the path of model weight (`.pth` file); (2) set `val` to `True`; (3) for testing-time augmentation, set `use_tta` to `True` and set `vote_num` accordingly. After that, run the following command. 
 ```
 python train.py --config [YOUR_CONFIG_PATH]
 ```
@@ -127,7 +127,7 @@ If you find this project useful, please consider citing:
 
 # Our Works on 3D Point Cloud
 
-* **Spherical Transformer for LiDAR-based 3D Recognition (CVPR 2023)** [\[Paper\]](https://github.com/dvlab-research/SphereFormer/releases/download/v1.0/paper_sphereformer.pdf) [\[Code\]](https://github.com/dvlab-research/SphereFormer) : A plug-and-play transformer module that boosts performance for distant region (for 3D LiDAR point cloud)
+* **Spherical Transformer for LiDAR-based 3D Recognition (CVPR 2023)** [\[Paper\]](https://arxiv.org/pdf/2303.12766.pdf) [\[Code\]](https://github.com/dvlab-research/SphereFormer) : A plug-and-play transformer module that boosts performance for distant region (for 3D LiDAR point cloud)
 
 * **Stratified Transformer for 3D Point Cloud Segmentation (CVPR 2022)**: [\[Paper\]](https://openaccess.thecvf.com/content/CVPR2022/papers/Lai_Stratified_Transformer_for_3D_Point_Cloud_Segmentation_CVPR_2022_paper.pdf) [\[Code\]](https://github.com/dvlab-research/Stratified-Transformer) : Point-based window transformer for 3D point cloud segmentation
 
