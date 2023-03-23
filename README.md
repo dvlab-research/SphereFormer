@@ -108,7 +108,9 @@ python train.py --config [YOUR_CONFIG_PATH]
 |---------------|:----:|:----:|:----:|:----:|:----:|:-----------:|
 | [nuScenes](config/nuscenes/nuscenes_unet32_spherical_transformer.yaml) | 79.5 | 78.4 | 80.8 | 60.8 | 30.4 | [Model Weight](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155154502_link_cuhk_edu_hk/Ebj08nZvE5lPpRn1ALgkcKwBjEQ5lrQFhx-yR2cbi9Cy-A?e=D3N3ge) |
 | [SemanticKITTI](config/semantic_kitti/semantic_kitti_unet32_spherical_transformer.yaml) | 69.0 | 67.8 | 68.6 | 60.4 | 17.8 | [Model Weight](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155154502_link_cuhk_edu_hk/EXsr5RdFzd9Lj7_T8L0dCagBZCDmbe5DtcZ8ipf1CfC58w?e=KxGpLV) |
-| [Waymo Open Dataset](config/waymo/waymo_unet32_spherical_transformer.yaml) | 70.8 | 69.9 | 70.3 | 68.6 | 61.9 | [Model Weight](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155154502_link_cuhk_edu_hk/EYoE2PXpVRZMtkJ6iPaoqPIB_B8GDLIK-z13RIjmGuHUNA?e=68qdfX) |
+| [Waymo Open Dataset](config/waymo/waymo_unet32_spherical_transformer.yaml) | 70.8 | 69.9 | 70.3 | 68.6 | 61.9 | N/A |
+
+Note: Pre-trained weights on Waymo Open Dataset are not released due to the regulations. 
 
 # SpTr Library
 The `SpTr` library is highly recommended for sparse transformer, particularly for 3D point cloud attention. It is **fast**, **memory-efficient** and **easy-to-use**. The github repository is https://github.com/dvlab-research/SparseTransformer.git.
