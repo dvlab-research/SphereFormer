@@ -7,9 +7,9 @@ This is the official PyTorch implementation of **SphereFormer** (CVPR 2023).
 Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia 
 
 # Highlight 
-1. **SphereFormer** is a plug-and-play transformer module. We develop **radial window attention**, which significantly boosts the segmentation performance of *distant points*, e.g., from 13.3% to 30.4% mIoU on nuScenes lidarseg *val* set. 
-2. It achieves superior performance on various **outdoor semantic segmentation benchmarks**, e.g., nuScenes, SemanticKITTI, Waymo, and also shows competitive results on nuScenes detection dataset.
-3. This repository employs a fast and memory-efficient library for sparse transformer with varying tokens, [**SparseTransformer**](https://github.com/dvlab-research/SparseTransformer).
+1. **SphereFormer** is a plug-and-play transformer module. We develop **radial window attention**, which significantly boosts the segmentation performance of **distant points**, e.g., from 13.3% to 30.4% mIoU on nuScenes lidarseg *val* set. 
+2. It achieves superior performance on various **outdoor semantic segmentation benchmarks**, e.g., nuScenes, SemanticKITTI, Waymo, and also shows competitive results on **nuScenes detection** dataset.
+3. This repository employs a **fast** and **memory-efficient** library for sparse transformer with **varying token numbers**, [**SparseTransformer**](https://github.com/dvlab-research/SparseTransformer).
 
 <div align="center">
   <img src="figs/figure.jpg"/>
@@ -111,7 +111,7 @@ python train.py --config [YOUR_CONFIG_PATH]
 | [Waymo Open Dataset](config/waymo/waymo_unet32_spherical_transformer.yaml) | 70.8 | 69.9 | 70.3 | 68.6 | 61.9 | [Model Weight](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155154502_link_cuhk_edu_hk/EYoE2PXpVRZMtkJ6iPaoqPIB_B8GDLIK-z13RIjmGuHUNA?e=68qdfX) |
 
 # SpTr Library
-The `SpTr` library is highly recommended for sparse transformer, particularly for 3D point cloud attention. It is **fast**, **memory-efficient** and **user-friendly**. The github repository is https://github.com/dvlab-research/SparseTransformer.git.
+The `SpTr` library is highly recommended for sparse transformer, particularly for 3D point cloud attention. It is **fast**, **memory-efficient** and **easy-to-use**. The github repository is https://github.com/dvlab-research/SparseTransformer.git.
 
 # Citation
 If you find this project useful, please consider citing:
