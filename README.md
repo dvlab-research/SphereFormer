@@ -26,8 +26,9 @@ Install dependencies (we test on python=3.7.9, pytorch==1.8.0, cuda==11.1, gcc==
 ```
 git clone https://github.com/dvlab-research/SphereFormer.git --recursive
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
-pip install torch_scatter
-pip install torch_geometric
+pip install torch_scatter==2.0.9
+pip install torch_geometric==1.7.2
+pip install spconv-cu114==2.1.21
 pip install tensorboard timm termcolor tensorboardX
 ```
 
