@@ -34,6 +34,22 @@ def cart2sphere(xyz):
     return torch.stack([theta, beta, r], -1)
 
 def exponential_split(xyz, index_0, index_1, relative_position_index, a=0.05*0.25):
+    '''
+    Mapping functioni from r to idx
+    | r         ---> idx    |
+    | ...       ---> ...    |
+    | [-2a, a)  ---> -2     |
+    | [-a, 0)   ---> -1     |
+    | [0, a)    ---> 0      |
+    | [a, 2a)   ---> 1      |
+    | [2a, 4a)  ---> 2      |
+    | [4a, 6a)  ---> 3      |
+    | [6a, 10a) ---> 4      |
+    | [10a, 14a)---> 5      |
+    | ...       ---> ...    |
+    Starting from 0, the split length will double once used twice.
+    '''
+
     r = xyz[:,2]
     rel_pos = r[index_0.long()] - r[index_1.long()] #[M,3]
     rel_pos_abs = rel_pos.abs()
@@ -44,6 +60,7 @@ def exponential_split(xyz, index_0, index_1, relative_position_index, a=0.05*0.2
     relative_position_index[:, 2] = idx.long() + 24
     return relative_position_index
 
+# Modified From sptr.VarLengthMultiheadSA (https://github.com/dvlab-research/SparseTransformer)
 class SparseMultiheadSASphereConcat(nn.Module):
     def __init__(self, 
         embed_dim, 
@@ -144,9 +161,6 @@ class SparseMultiheadSASphereConcat(nn.Module):
 
         N, C = query.shape
         
-        # query = self.q(query).reshape(N, self.num_heads, C // self.num_heads)
-        # key = self.k(key).reshape(N, self.num_heads, C // self.num_heads)
-        # value = self.v(value).reshape(N, self.num_heads, C // self.num_heads)
         qkv = self.qkv(query).reshape(N, 3, self.num_heads, C // self.num_heads).permute(1, 0, 2, 3).contiguous()
         query, key, value = qkv[0], qkv[1], qkv[2] #[N, num_heads, C//num_heads]
         query = query * self.scale
