@@ -54,6 +54,7 @@ nuscenes/
 ```
 Then, fill in the `data_path` and `save_dir` in `data/nuscenes_preprocess_infos.py`, then generate the infos by
 ```
+pip install nuscenes-devkit pyquaternion
 cd data && python nuscenes_preprocess_infos.py
 ```
 
