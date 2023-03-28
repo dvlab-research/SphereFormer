@@ -29,6 +29,7 @@ pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f htt
 pip install torch_scatter==2.0.9
 pip install torch_geometric==1.7.2
 pip install spconv-cu114==2.1.21
+pip install torch_sparse==0.6.12 cumm-cu114==0.2.8 torch_cluster==1.5.9
 pip install tensorboard timm termcolor tensorboardX
 ```
 
