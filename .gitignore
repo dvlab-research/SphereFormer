@@ -92,7 +92,6 @@ torch_points3d/
 output/*
 *.pth
 */__pycache__
-*.txt
 core.*
 data/train
 data/test
@@ -101,24 +100,3 @@ data/val
 debug/
 spconv/
 
-colors/
-config/semantic_kitti/*_cont.yaml
-config/*/*_val.yaml
-slurm_cmd/*_cont.cmd
-config/semantic_kitti/*_cont2.yaml
-slurm_cmd/*_cont2.cmd
-config/semantic_kitti/*_tta.yaml
-slurm_cmd/*_tta.cmd
-gt_samples/
-*.pickle
-*.pt
-debug/
-semantic-kitti-api/
-check.py
-config/semantic_kitti/*_debug.yaml
-config/waymo/*_debug.yaml
-config/waymo/*_debug[0-9].yaml
-color_maps/
-gt_samples_waymo/
-gt_samples_nusc/
-baidu/
