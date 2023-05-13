@@ -11,7 +11,7 @@ Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia
 
 Clone the repo via
 ```
-git clone https://github.com/dvlab-research/SphereFormer.git --recursive && cd SphereFormer/object_detection/
+git clone https://github.com/dvlab-research/SphereFormer.git --recursive && cd SphereFormer/detection/
 ```
 
 This implementataion is built on OpenPCDet (https://github.com/open-mmlab/OpenPCDet). Please strictly follow its official guidance for installation and data preparation.
