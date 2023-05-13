@@ -20,6 +20,10 @@ Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia
 
 # Get Started
 
+For *object deteciton*, please go to the `object_detection/` directory. (or click [Here](object_detection/README.md))
+
+The below guide is for *semantic segmentation*.
+
 ## Environment
 
 Install dependencies (we test on python=3.7.9, pytorch==1.8.0, cuda==11.1, gcc==7.5.0)
