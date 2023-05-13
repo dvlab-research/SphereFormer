@@ -1,0 +1,79 @@
++ NGPUS=4
++ PY_ARGS='--cfg_file cfgs/nuscenes_models/cbgs_voxel0075_res3d_centerpoint_adamw0.006_wd0.01.yaml'
++ true
++ PORT=50229
+++ nc -z 127.0.0.1 50229
+++ echo 1
++ status=1
++ '[' 1 '!=' 0 ']'
++ break
++ echo 50229
+50229
++ python -m torch.distributed.launch --nproc_per_node=4 train.py --launcher pytorch --cfg_file cfgs/nuscenes_models/cbgs_voxel0075_res3d_centerpoint_adamw0.006_wd0.01.yaml
+Traceback (most recent call last):
+  File "train.py", line 221, in <module>
+    main()
+  File "train.py", line 72, in main
+    args.tcp_port, args.local_rank, backend='nccl'
+  File "../pcdet/utils/common_utils.py", line 180, in init_dist_pytorch
+    backend=backend,
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/distributed/distributed_c10d.py", line 525, in init_process_group
+    _store_based_barrier(rank, store, timeout)
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/distributed/distributed_c10d.py", line 215, in _store_based_barrier
+    rank, store_key, world_size, worker_count, timeout))
+RuntimeError: Timed out initializing process group in store based barrier on rank: 0, for key: store_based_barrier_key:1 (world_size=4, worker_count=7, timeout=0:30:00)
+Traceback (most recent call last):
+  File "train.py", line 221, in <module>
+Traceback (most recent call last):
+  File "train.py", line 221, in <module>
+Traceback (most recent call last):
+  File "train.py", line 221, in <module>
+    main()
+  File "train.py", line 156, in main
+    main()
+  File "train.py", line 156, in main
+    model = nn.parallel.DistributedDataParallel(model, device_ids=[cfg.LOCAL_RANK % torch.cuda.device_count()])
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/nn/parallel/distributed.py", line 446, in __init__
+    model = nn.parallel.DistributedDataParallel(model, device_ids=[cfg.LOCAL_RANK % torch.cuda.device_count()])
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/nn/parallel/distributed.py", line 446, in __init__
+    main()
+  File "train.py", line 72, in main
+    args.tcp_port, args.local_rank, backend='nccl'
+  File "../pcdet/utils/common_utils.py", line 180, in init_dist_pytorch
+    backend=backend,
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/distributed/distributed_c10d.py", line 525, in init_process_group
+    _store_based_barrier(rank, store, timeout)
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/distributed/distributed_c10d.py", line 201, in _store_based_barrier
+    worker_count = store.add(store_key, 0)
+RuntimeError: Broken pipe
+    self._sync_params_and_buffers(authoritative_rank=0)
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/nn/parallel/distributed.py", line 460, in _sync_params_and_buffers
+    self._sync_params_and_buffers(authoritative_rank=0)
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/nn/parallel/distributed.py", line 460, in _sync_params_and_buffers
+    authoritative_rank)
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/nn/parallel/distributed.py", line 1156, in _distributed_broadcast_coalesced
+    authoritative_rank)
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/nn/parallel/distributed.py", line 1156, in _distributed_broadcast_coalesced
+    self.process_group, tensors, buffer_size, authoritative_rank
+RuntimeError: Connection reset by peer
+    self.process_group, tensors, buffer_size, authoritative_rank
+RuntimeError: Connection reset by peer
+Traceback (most recent call last):
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/distributed/launch.py", line 340, in <module>
+    main()
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/distributed/launch.py", line 326, in main
+    sigkill_handler(signal.SIGTERM, None)  # not coming back
+  File "/mnt/proj74/xinlai/miniconda3/lib/python3.7/site-packages/torch/distributed/launch.py", line 301, in sigkill_handler
+    raise subprocess.CalledProcessError(returncode=last_return_code, cmd=cmd)
+subprocess.CalledProcessError: Command '['/mnt/proj74/xinlai/miniconda3/bin/python', '-u', 'train.py', '--local_rank=3', '--launcher', 'pytorch', '--cfg_file', 'cfgs/nuscenes_models/cbgs_voxel0075_res3d_centerpoint_adamw0.006_wd0.01.yaml']' returned non-zero exit status 1.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Killing subprocess 25374
+Killing subprocess 25376
+Killing subprocess 25378
+Killing subprocess 25380

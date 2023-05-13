@@ -20,7 +20,7 @@ Xin Lai, Yukang Chen, Fanbin Lu, Jianhui Liu, Jiaya Jia
 
 # Get Started
 
-For *object deteciton*, please go to the `object_detection/` directory. (or click [Here](object_detection/README.md))
+For *object deteciton*, please go to the `detection/` directory. (or click [Here](detection/README.md))
 
 The below guide is for *semantic segmentation*.
 
