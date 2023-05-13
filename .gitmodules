@@ -1,3 +1,7 @@
 [submodule "third_party/SparseTransformer"]
 	path = third_party/SparseTransformer
 	url = https://github.com/dvlab-research/SparseTransformer
+	
+[submodule "object_detection/tools/third_party/SparseTransformer"]
+	path = object_detection/tools/third_party/SparseTransformer
+	url = https://github.com/dvlab-research/SparseTransformer.git
