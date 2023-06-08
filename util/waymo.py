@@ -108,8 +108,10 @@ class Waymo(torch.utils.data.Dataset):
         file_path = self.files[index]
 
         raw_data = np.fromfile(file_path, dtype=np.float32).reshape((-1, 4))
-        annotated_data = np.fromfile(file_path.replace('velodyne', 'labels')[:-3] + 'label',
-                                        dtype=np.uint32).reshape((-1, 1))
+        annotated_data = np.fromfile(file_path.replace('velodyne', 'labels')[:-3] + 'label', 
+                                 dtype=np.uint32).reshape((-1, 2)) 
+        annocated_data = annocated_data[:, 1]
+        
         points = raw_data[:, :4]
         if self.split != 'test':
             annotated_data[annotated_data == 0] = self.ignore_label + 1
